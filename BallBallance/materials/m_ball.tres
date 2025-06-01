@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bl33gcranor4r"]
+
+[ext_resource type="Shader" uid="uid://bol3jlpk5lc14" path="res://shader/toon.gdshader" id="1_i3mt1"]
+
+[sub_resource type="Gradient" id="Gradient_m2nbm"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.319444)
+colors = PackedColorArray(0.130772, 0.130772, 0.130772, 1, 0.399427, 0.399428, 0.399428, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gxkvl"]
+gradient = SubResource("Gradient_m2nbm")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_i3mt1")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_gxkvl")
+shader_parameter/outline_width = 3.0
+shader_parameter/base_color = Color(1, 1, 1, 1)

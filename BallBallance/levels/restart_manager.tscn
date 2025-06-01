@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccog8oskmxs0j"]
+
+[ext_resource type="Script" uid="uid://17kwxtkri6i5" path="res://scripts/RestartManager.gd" id="1_auy3t"]
+[ext_resource type="PackedScene" uid="uid://b0l0j62t5omv8" path="res://menues/restart_menu.tscn" id="2_5brjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2ibs"]
+
+[node name="RestartManager" type="Node3D"]
+script = ExtResource("1_auy3t")
+
+[node name="RestartMenu" parent="." instance=ExtResource("2_5brjx")]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_k2ibs")
+
+[connection signal="pressed" from="RestartMenu/MarginContainer/VBoxContainer/ButtonAgain" to="." method="_on_button_again_pressed"]
+[connection signal="pressed" from="RestartMenu/MarginContainer/VBoxContainer/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="RestartMenu"]

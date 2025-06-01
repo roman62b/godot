@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://7skpi8ko8aqu"]
+
+[ext_resource type="Script" uid="uid://curyihmk6s51" path="res://scripts/PauseManager.gd" id="1_e8nqo"]
+[ext_resource type="PackedScene" uid="uid://cedbou8bsmuap" path="res://menues/pause_menu.tscn" id="2_gtug7"]
+
+[node name="PauseManager" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_e8nqo")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_gtug7")]
+visible = false
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonResume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]
+
+[editable path="PauseMenu"]

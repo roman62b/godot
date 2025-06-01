@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxblev5spny0h"]
+
+[ext_resource type="Script" uid="uid://2uyi36chgw5p" path="res://singltons/Music.gd" id="1_ymn6n"]
+
+[node name="Music" type="Node"]
+process_mode = 3
+script = ExtResource("1_ymn6n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
